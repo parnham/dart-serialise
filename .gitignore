@@ -1,0 +1,8 @@
+*.old
+*~
+
+pubspec.lock
+.packages
+.pub/
+packages/
+build/
