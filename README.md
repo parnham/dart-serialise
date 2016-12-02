@@ -171,7 +171,7 @@ and ignore the first half-dozen runs.
 | DSON    | 115.1 KB  | 101.2  µs        | 57.6 µs            | 2414.9 µs      | 938.8 µs         |
 | Interop | 32.9 KB   | 100.4 µs         | 28.4 µs            | 3.7 µs         | 3.5 µs           |
 
-The manual method running in the DartVM was the fastest overall, but the interop method is clearly the
+The manual method was the fastest when running in the DartVM, but the interop method is clearly the
 winner when compiled to javascript. What was surprising is how much slower the DSON method is when compiled.
 The interop method also resulted in the smallest javascript file size.
 
