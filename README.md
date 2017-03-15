@@ -168,7 +168,7 @@ and ignore the first half-dozen runs.
 | Method  | Size (js) | Serialise (dart) | Deserialise (dart) | Serialise (js) | Deserialise (js) |
 | ------- | --------- | ---------------- | ------------------ | -------------- | ---------------- |
 | Manual  | 38.8 KB   | 4.9 µs           | 3.2 µs             | 10.4 µs        | 6.5 µs           |
-| DSON    | 115.1 KB  | 101.2  µs        | 57.6 µs            | 2414.9 µs      | 938.8 µs         |
+| DSON    | 62.7 KB   | 31.8  µs         | 44.6 µs            | 29.3 µs        | 30.2 µs          |
 | Interop | 32.9 KB   | 100.4 µs         | 28.4 µs            | 3.7 µs         | 3.5 µs           |
 
 The manual method was the fastest when running in the DartVM, but the interop method is clearly the
