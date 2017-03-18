@@ -72,8 +72,10 @@ The example provided here is based on the [DSON package](https://pub.dartlang.or
 boilerplate and is quite an elegant solution considering that object serialisation is not supported natively within Dart.
 
 ```dart
+part 'simple.g.dart';
+
 @serializable
-class Simple
+class Simple extends _$SimpleSerializable
 {
     String id;
     double value;
@@ -158,8 +160,8 @@ chance of introducing errors.
 Comparison
 ----------
 
-The following comparisons of size and speed were produced using the code in this repository and Dart v1.20.1, DSON v0.3.4, 
-js v0.6.1, Dartium 45.0.2454.104 and Chrome 54.0.2840.100.
+The following comparisons of size and speed were produced using the code in this repository and Dart v1.22.1, DSON v0.5.0+2,
+js v0.6.1, Dartium 45.0.2454.104 and Chrome 57.0.2987.110.
 
 The full results can be found in the [results](results/results.ods) spreadsheet. Each row in the spreadsheet represents 1000 
 iterations of serialisation and 1000 iterations of deserialisation of a non-trivial entity. The numbers shown here are averages
@@ -167,13 +169,12 @@ and ignore the first half-dozen runs.
 
 | Method  | Size (js) | Serialise (dart) | Deserialise (dart) | Serialise (js) | Deserialise (js) |
 | ------- | --------- | ---------------- | ------------------ | -------------- | ---------------- |
-| Manual  | 38.8 KB   | 4.9 µs           | 3.2 µs             | 10.4 µs        | 6.5 µs           |
-| DSON    | 115.1 KB  | 101.2  µs        | 57.6 µs            | 2414.9 µs      | 938.8 µs         |
-| Interop | 32.9 KB   | 100.4 µs         | 28.4 µs            | 3.7 µs         | 3.5 µs           |
+| Manual  | 39.4 KB   | 4.8 µs           | 3.1 µs             | 10.7 µs        | 7.9 µs           |
+| DSON    | 61.3 KB   | 27.8 µs          | 35.2 µs            | 43.0 µs        | 40.0 µs          |
+| Interop | 33.4 KB   | 105.7 µs         | 27.9 µs            | 3.4 µs         | 3.1 µs           |
 
 The manual method was the fastest when running in the DartVM, but the interop method is clearly the
-winner when compiled to javascript. What was surprising is how much slower the DSON method is when compiled.
-The interop method also resulted in the smallest javascript file size.
+winner when compiled to javascript. The interop method also resulted in the smallest javascript file size.
 
 ---
 Conclusions

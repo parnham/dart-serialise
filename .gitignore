@@ -6,3 +6,5 @@ pubspec.lock
 .pub/
 packages/
 build/
+
+*.g.dart
