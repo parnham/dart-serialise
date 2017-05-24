@@ -4,10 +4,9 @@ import 'package:dson/dson.dart';
 
 part 'dson.g.dart';
 
-
 @serializable
-class Simple extends _$SimpleSerializable
-{
+class Simple
+extends _$SimpleSerializable{
 	String id;
 	double value;
 	bool flag;
@@ -15,15 +14,14 @@ class Simple extends _$SimpleSerializable
 
 
 @serializable
-class Complex extends _$ComplexSerializable
-{
+class Complex
+extends _$ComplexSerializable{
 	Simple simple;
 	List<Simple> list;
 }
 
 
-void main()
-{
+void main() {
 	_initMirrors();
 
 	var complex = fromJson('''{

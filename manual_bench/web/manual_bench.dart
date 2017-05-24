@@ -1,6 +1,7 @@
 library serialise.manual;
 
 import 'dart:convert';
+import 'dart:html';
 
 
 class Simple
@@ -78,6 +79,10 @@ void main()
 		]
 	}''';
 
+	var output = document.querySelector('#output');
+
+	int serializeTimeTotal = 0;
+	int deserializeTimeTotal = 0;
 
 	for (int j=0; j<50; j++)
 	{
@@ -99,7 +104,8 @@ void main()
 
 		s.stop();
 
-		int forward = s.elapsedMicroseconds;
+		int serializeTime = s.elapsedMicroseconds;
+		serializeTimeTotal += serializeTime;
 
 		s..reset()..start();
 
@@ -110,6 +116,11 @@ void main()
 
 		s.stop();
 
-		print("$forward\t${s.elapsedMicroseconds}");
+		var deserializeTime = s.elapsedMicroseconds;
+		deserializeTimeTotal += deserializeTime;
+
+		output.appendHtml("<tr><td>$serializeTime</td><td>${deserializeTime}</td>");
 	}
+
+	output.appendHtml("<tr><th>${serializeTimeTotal/50}</th><th>${deserializeTimeTotal/50}</th></tr>");
 }
